@@ -26,7 +26,7 @@ createState(observer, DeckSpec) ->
     [{mode,observer}|createStateImpl(DeckSpec)];
     
 createState(auto, DeckSpec) ->
-    [{mode,auto},createStateImpl(DeckSpec)].
+    [{mode,auto}|createStateImpl(DeckSpec)].
 
 createState(DeckSpec) ->
-    createState(observer,DeckSpec).
+    createState(auto,DeckSpec).
