@@ -5,8 +5,8 @@ init() ->
     {ok}.
 
 selectCard(Mode,Field) ->
-    Hand = lists:keyfind(hand, 1, Field),
-    Clock = lists:keyfind(clock, 1, Field),
+    { _, Hand } = lists:keyfind(hand, 1, Field),
+    { _, Clock } = lists:keyfind(clock, 1, Field),
     SelectedCardId = Mode:promptForCard(Hand),
     {SelectedCard,Hand0} = utils:removeCard(SelectedCardId, Hand),
 

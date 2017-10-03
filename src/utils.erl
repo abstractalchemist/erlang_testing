@@ -8,6 +8,7 @@
 
 % Removes a card from a list of cards
 removeCard(Id,ListOfCards) ->
+    io:format("Removing ~s~n", [Id]),
     {value, SelectedCard, UpdatedList} = lists:keytake(Id, 1, ListOfCards),
     { SelectedCard, UpdatedList}.
 
