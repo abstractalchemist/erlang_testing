@@ -5,14 +5,10 @@ init() ->
     {ok}.
 
 % Takes the top card of the deck, adds it to hand
-drawCard(State = [ { mode, Mode }, _, { turn, CurrentPlayer }, { player1, Field1 }, { player2, Field2 } ]) ->
-    Field = if 
-		CurrentPlayer == player1 ->
-		    Field1;
-		true ->
-		    Field2
-	    end,
-    	
+drawCard(State) ->
+    {_,Mode} = lists:keyfind(mode,1,State),
+    {_, CurrentPlayer} = lists:keyfind(turn,1,State),
+    Field = utils:selectField(State),
     {_,Deck0} = lists:keyfind(deck,1,Field),
     [Card|Deck] = Mode:drawCardImpl(Deck0),
     {_, Hand} = lists:keyfind(hand,1,Field),
