@@ -87,7 +87,7 @@ removecard(Id,ListOfCards) ->
     { SelectedCard, UpdatedList}.
 
 % Creates the player stage.  DeckModule is a callback module to find the playing deck, Id is the id of the deck to retrieve
-createSide([{module,DeckModule},{id,Id}]) ->
+createside([{module,DeckModule},{id,Id}]) ->
        [
 	{ clock, [] },
 	{ level, [] },
@@ -108,21 +108,21 @@ createSide([{module,DeckModule},{id,Id}]) ->
 % turn - whose turn, it's either player1 or player2
 % { player1, Field } is the tuple containing player1 field
 % { player2, Field } is the tuple containing player2 field
-createstateImpl(DeckSpec) ->
+createstateimpl(DeckSpec) ->
     [ { phase, start },
       { turn, player1 },
       { player1,
-	createSide(DeckSpec) },
+	createside(DeckSpec) },
       { player2, 
-	createSide(DeckSpec) }].
+	createside(DeckSpec) }].
 
 % Adds the program mode, either observer or auto
 % mode corresponds to the specified module callback, either observer, or auto
 createstate(observer, DeckSpec) ->
-    [{mode,observer}|createstateImpl(DeckSpec)];
+    [{mode,observer}|createstateimpl(DeckSpec)];
     
 createstate(auto, DeckSpec) ->
-    [{mode,auto}|createstateImpl(DeckSpec)].
+    [{mode,auto}|createstateimpl(DeckSpec)].
 
 
 % Creates a default program, where auto is the default
