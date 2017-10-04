@@ -27,6 +27,8 @@ checkvalidfieldsymbol(stock) ->
     {ok};
 checkvalidfieldsymbol(deck) ->
     {ok};
+checkvalidfieldsymbol(waiting_room) ->
+    {ok};
 checkvalidfieldsymbol(_) ->
     {error, invalid_location}.
 
@@ -93,6 +95,7 @@ createSide([{module,DeckModule},{id,Id}]) ->
 	{ stock, [] },
 	{ hand, [] },
 	{ memory, [] },
+	{ waiting_room, [] },
 	{ stage_front_left, [] },
 	{ stage_front_center, [] },
 	{ stage_front_right, [] },

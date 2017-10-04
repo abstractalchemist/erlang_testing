@@ -5,6 +5,6 @@
 
 % get the deck based the input id
 get(_) ->
-    [{ 0, { info, [] }, { active, [] } },
-     { 1, { info, [] }, { active, [] } },
-     { 2, { info, [] }, { active, [] } }].
+    [{ 0, { info, [{type, character}] }, { active, [] } },
+     { 1, { info, [{type, character}] }, { active, [] } },
+     { 2, { info, [{type, character}] }, { active, [] } }].
