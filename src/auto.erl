@@ -9,10 +9,16 @@ drawCardImpl(Deck) ->
     Deck.
 
 promptForCard(Hand) ->
-    io:format("Removing from ~s~n",[Hand]),
-    io:fread("Select A Card From Hand " ++ io_lib:format("~s~n", [lists:map(fun (obj) ->
-										   lists:element(1,obj)
-									   end,
-									   Hand)]), "~d").
+    %io:format("Removing from < ~s >~n",[Hand]),
+    ReadResult = io:fread("Select A Card From Hand " ++ io_lib:format("~s~n", [lists:map(fun (obj) ->
+												 lists:element(1,obj)
+											 end,
+											 Hand)]), "~d"),
+    case ReadResult of 
+	{ok,Result} ->
+	    Result;
+	{error,_} ->
+	    error
+    end.
 
 
